@@ -89,6 +89,9 @@ class BestMatch(object):
                     self.man_dating[m] = w
                     self.man_dating[m_] = -1
                     self.man_engage_flag[m_] = 0
+                    self.man_engage_flag[m] = 1
+                    self.woman_engage_flag[w] = 1
+
         print('Problem solved.')
 
     def out(self):

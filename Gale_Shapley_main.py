@@ -10,21 +10,18 @@ import numpy as np
 from random import shuffle
 
 if __name__ == '__main__':
-    N = 3
-    # man_favor_list = []
-    # woman_favor_list = []
-    # for m in range(N):
-    #     favor = [i for i in range(N)]
-    #     shuffle(favor)
-    #     man_favor_list.append(favor)
-    #
-    # for w in range(N):
-    #     favor = [i for i in range(N)]
-    #     shuffle(favor)
-    #     woman_favor_list.append(favor)
+    N = 20
+    man_favor_list = []
+    woman_favor_list = []
+    for m in range(N):
+        favor = [i for i in range(N)]
+        shuffle(favor)
+        man_favor_list.append(favor)
 
-    man_favor_list = [[1, 2, 0], [1, 2, 0], [0, 1, 2]]
-    woman_favor_list = [[2, 0, 1], [2, 1, 0], [2, 0, 1]]
+    for w in range(N):
+        favor = [i for i in range(N)]
+        shuffle(favor)
+        woman_favor_list.append(favor)
 
     man = gs.ManGroup(N, man_favor_list)
     woman = gs.WomanGroup(N, woman_favor_list)
