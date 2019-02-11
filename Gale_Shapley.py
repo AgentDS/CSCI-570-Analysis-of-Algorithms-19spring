@@ -92,8 +92,6 @@ class BestMatch(object):
                     self.man_engage_flag[m] = 1
                     self.woman_engage_flag[w] = 1
 
-        print('Problem solved.')
-
     def out(self):
         print('Prefer list::')
         for i in range(self.N):

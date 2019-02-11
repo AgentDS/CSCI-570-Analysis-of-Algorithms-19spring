@@ -8,24 +8,31 @@
 import Gale_Shapley as gs
 import numpy as np
 from random import shuffle
+from time import time
 
 if __name__ == '__main__':
-    N = 20
-    man_favor_list = []
-    woman_favor_list = []
-    for m in range(N):
-        favor = [i for i in range(N)]
-        shuffle(favor)
-        man_favor_list.append(favor)
+    with open('G_S_Ntime.txt', 'w') as f:
+        for i in range(100):
+            N = i * 10 + 10
+            man_favor_list = []
+            woman_favor_list = []
+            for m in range(N):
+                favor = [i for i in range(N)]
+                shuffle(favor)
+                man_favor_list.append(favor)
 
-    for w in range(N):
-        favor = [i for i in range(N)]
-        shuffle(favor)
-        woman_favor_list.append(favor)
+            for w in range(N):
+                favor = [i for i in range(N)]
+                shuffle(favor)
+                woman_favor_list.append(favor)
 
-    man = gs.ManGroup(N, man_favor_list)
-    woman = gs.WomanGroup(N, woman_favor_list)
+            man = gs.ManGroup(N, man_favor_list)
+            woman = gs.WomanGroup(N, woman_favor_list)
 
-    gs_prob = gs.BestMatch(man, woman)
-    gs_prob.solve_match()
-    gs_prob.out()
+            gs_prob = gs.BestMatch(man, woman)
+
+            start = time()
+            gs_prob.solve_match()
+            end = time()
+            print("N: %d, Time: %.10f s" % (N, end - start))
+            print("%d,%.10f" % (N, end - start), file=f)
